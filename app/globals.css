@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default, dark;
+}
+
+/* Drive `dark:` utilities from the theme toggle (next-themes adds `.dark` to <html>) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --civora-navy: #172554;
+  --civora-blue: #3569e8;
+  --civora-coral: #ff725e;
+  --civora-sunshine: #ffd166;
+  --civora-cloud: #f5f7fc;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-navy: var(--civora-navy);
+  --color-civora-blue: var(--civora-blue);
+  --color-coral: var(--civora-coral);
+  --color-sunshine: var(--civora-sunshine);
+  --color-cloud: var(--civora-cloud);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-space-grotesk);
+}
+
+.dark {
+  --background: #0b1530;
+  --foreground: #eef2ff;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Subtle editorial touches */
+.civora-card {
+  border: 1px solid rgb(15 23 42 / 0.08);
+  box-shadow: 0 8px 24px -12px rgb(23 37 84 / 0.18);
+}
+.dark .civora-card {
+  border-color: rgb(255 255 255 / 0.1);
+  box-shadow: 0 8px 24px -12px rgb(0 0 0 / 0.5);
+}
